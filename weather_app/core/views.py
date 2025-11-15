@@ -6,7 +6,7 @@ def index(request):
     weather_data = None
     if request.method == 'POST':
         city = request.POST.get('city')
-        api_key = '72e05c931fcc6852a4e68acce01f9623'
+        api_key = os.getenv('WEATHER_API_KEY')
         url =f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
         response = requests.get(url) # requests for Fetching data from API
 
